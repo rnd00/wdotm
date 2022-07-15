@@ -4,5 +4,5 @@ import "fmt"
 
 func main() {
 	fmt.Println("wdotm")
-	printWeekdaysOnly(calculate(FRI, 31))
+	PrintWeekdaysOnly(Calculate(FRI, 31))
 }

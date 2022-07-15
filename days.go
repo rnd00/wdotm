@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 const (
 	MON Days = iota
@@ -23,7 +25,7 @@ func (d Days) Less(i, j Days) bool {
 	return i < j
 }
 
-func calculate(day Days, totalDay int) map[Days]int {
+func Calculate(day Days, totalDay int) map[Days]int {
 	ret := make(map[Days]int)
 	for i := 0; i < totalDay; i++ {
 		ret[(Days(i)+day)%7]++
@@ -31,14 +33,16 @@ func calculate(day Days, totalDay int) map[Days]int {
 	return ret
 }
 
-func printWeekdaysOnly(data map[Days]int) {
-	for i := MON; i < SAT; i++ {
-		fmt.Printf("%10s:%3d\n", i, data[i])
-	}
+func PrintWeekdaysOnly(data map[Days]int) {
+	printDays(data, MON, FRI)
+}
+
+func PrintAllDays(data map[Days]int) {
+	printDays(data, MON, SUN)
 }
 
 func printDays(data map[Days]int, start, end Days) {
-	for i := start; i < end; i++ {
+	for i := start; i <= end; i++ {
 		fmt.Printf("%10s:%3d\n", i, data[i])
 	}
 }
