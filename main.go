@@ -21,10 +21,10 @@ func (d Days) String() string {
 
 func main() {
 	fmt.Println("wdotm")
-	printWeekdaysOnly(checkAll(FRI, 31))
+	printWeekdaysOnly(calculate(FRI, 31))
 }
 
-func checkAll(day Days, totalDay int) map[Days]int {
+func calculate(day Days, totalDay int) map[Days]int {
 	ret := make(map[Days]int)
 	for i := 0; i < totalDay; i++ {
 		ret[(Days(i)+day)%7]++
